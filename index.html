@@ -46,15 +46,9 @@
     </div>
   </header>
 
-  <div class="goal-animation" id="goalAnimation" aria-hidden="true">
+  <div class="goal-animation" id="goalAnimation" aria-hidden="true" style="display:none;">
     <div class="net"></div>
     <div class="ball"></div>
-  </div>
-
-  <div class="book-prompt" id="bookPrompt" role="dialog" aria-live="polite">
-    <span>🔥 Are you ready to book your match in 15 seconds?</span>
-    <button id="bookPromptButton">Yes, book now!</button>
-    <button id="dismissPrompt" aria-label="Dismiss booking prompt">Close</button>
   </div>
 
   <main>
@@ -64,11 +58,11 @@
       aria-label="Footlab hero image slider"
     >
       <div class="hero-slides">
-        <div class="hero-slide active" style="background-image: url('images/hero/hero1.png');" aria-hidden="false"></div>
-        <div class="hero-slide" style="background-image: url('images/hero/hero2.png');" aria-hidden="true"></div>
-        <div class="hero-slide" style="background-image: url('images/hero/hero3.png');" aria-hidden="true"></div>
-        <div class="hero-slide" style="background-image: url('images/hero/hero4.png');" aria-hidden="true"></div>
-        <div class="hero-slide" style="background-image: url('images/hero/hero5.png');" aria-hidden="true"></div>
+        <div class="hero-slide active" data-bg="images/hero/hero1.png" aria-hidden="false"></div>
+        <div class="hero-slide" data-bg="images/hero/hero2.png" aria-hidden="true"></div>
+        <div class="hero-slide" data-bg="images/hero/hero3.png" aria-hidden="true"></div>
+        <div class="hero-slide" data-bg="images/hero/hero4.png" aria-hidden="true"></div>
+        <div class="hero-slide" data-bg="images/hero/hero5.png" aria-hidden="true"></div>
       </div>
 
       <button class="hero-arrow hero-arrow-left" id="heroPrev" aria-label="Previous hero image">

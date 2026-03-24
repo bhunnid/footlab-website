@@ -267,8 +267,8 @@ main {
   background-repeat: no-repeat;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
-  transform: scale(1.09);
-  will-change: opacity, transform;
+  transform: scale(1);
+  will-change: opacity;
 }
 
 .hero-slide.active {
@@ -289,12 +289,9 @@ main {
   position: absolute;
   inset: 0;
   z-index: 3;
-  background-image: radial-gradient(circle at 20% 25%, rgba(150, 238, 185, 0.16), transparent 28%),
-    radial-gradient(circle at 80% 23%, rgba(150, 238, 185, 0.18), transparent 28%),
-    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.14), transparent 30%);
+  background: none;
   opacity: 0;
-  animation: stadiumLights 3.5s ease-in-out infinite;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
 }
 
 @keyframes stadiumLights {
@@ -647,22 +644,12 @@ main {
 }
 
 .goal-animation {
-  position: fixed;
-  left: 50%;
-  top: 20%;
-  width: 88px;
-  height: 88px;
-  transform: translate(-50%, -50%);
-  z-index: 1001;
+  display: none !important;
   pointer-events: none;
-  opacity: 0;
-  display: grid;
-  place-items: center;
-  animation: goalPop 2.8s ease-out forwards;
 }
 
-.goal-animation.active {
-  opacity: 1;
+.book-prompt {
+  display: none !important;
 }
 
 .goal-animation .ball {

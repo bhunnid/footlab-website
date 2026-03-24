@@ -24,12 +24,26 @@ const heroNext = document.getElementById("heroNext");
 
 let currentHeroIndex = 0;
 let heroInterval;
+const HERO_AUTO_ADVANCE = false; // disable on-load auto slideshow for better experience
+const HERO_ADVANCE_MS = 7000;
 
 function showHeroSlide(index) {
   heroSlides.forEach((slide, i) => {
+    const bg = slide.dataset.bg;
+    if (i === index && bg) {
+      slide.style.backgroundImage = `url('${bg}')`;
+    }
     slide.classList.toggle("active", i === index);
     slide.setAttribute("aria-hidden", i === index ? "false" : "true");
   });
+
+  // preload the next hero image gently to reduce perceived lag
+  const nextIndex = (index + 1) % heroSlides.length;
+  const nextBg = heroSlides[nextIndex]?.dataset.bg;
+  if (nextBg) {
+    const img = new Image();
+    img.src = nextBg;
+  }
 }
 
 function nextHeroSlide() {
@@ -43,9 +57,8 @@ function prevHeroSlide() {
 }
 
 function startHeroSlider() {
-  if (heroSlides.length > 1) {
-    heroInterval = setInterval(nextHeroSlide, 5000);
-  }
+  if (!HERO_AUTO_ADVANCE || heroSlides.length <= 1) return;
+  heroInterval = setInterval(nextHeroSlide, HERO_ADVANCE_MS);
 }
 
 function resetHeroSlider() {
@@ -193,43 +206,8 @@ if (galleryRedirect) {
   });
 }
 
-const goalAnimation = document.getElementById('goalAnimation');
-const bookPrompt = document.getElementById('bookPrompt');
-const bookPromptButton = document.getElementById('bookPromptButton');
-const dismissPrompt = document.getElementById('dismissPrompt');
-
-function fireGoalAnimation() {
-  if (!goalAnimation) return;
-  goalAnimation.classList.remove('active');
-  void goalAnimation.offsetWidth;
-  goalAnimation.classList.add('active');
-}
-
 window.addEventListener('load', () => {
-  fireGoalAnimation();
-
-  setTimeout(() => {
-    if (bookPrompt) bookPrompt.style.opacity = '1';
-  }, 450);
-
-  if (bookPromptButton) {
-    bookPromptButton.addEventListener('click', () => {
-      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      document.querySelector('#name')?.focus();
-      if (bookPrompt) bookPrompt.style.display = 'none';
-      fireGoalAnimation();
-
-      // dynamically build urgency countdown text start
-      let countdown = 18;
-      const interval = setInterval(() => {
-        if (countdown <= 0) {
-          clearInterval(interval);
-          return;
-        }
-        countdown -= 1;
-      }, 1000);
-    });
-  }
+  // Reserved for future non-intrusive launch behavior
 });
 
 
