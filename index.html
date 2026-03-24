@@ -29,23 +29,59 @@
   </header>
 
   <main>
-    <section class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-text">
+    <section
+      class="hero hero-slider section"
+      id="heroSlider"
+      aria-label="Footlab hero image slider"
+    >
+      <div class="hero-slides">
+        <div
+          class="hero-slide active"
+          style="background-image: url('images/hero/hero1.png');"
+          aria-hidden="false"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url('images/hero/hero2.png');"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url('images/hero/hero3.png');"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url('images/hero/hero4.png');"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url('images/hero/hero5.png');"
+          aria-hidden="true"
+        ></div>
+      </div>
+
+      <button class="hero-arrow hero-arrow-left" id="heroPrev" aria-label="Previous hero image">
+        &#10094;
+      </button>
+
+      <button class="hero-arrow hero-arrow-right" id="heroNext" aria-label="Next hero image">
+        &#10095;
+      </button>
+
+      <div class="container hero-content-wrap">
+        <div class="hero-text hero-text-centered">
           <span class="badge">Football Turf Experience</span>
           <h1>Play football the modern way at Footlab Turf</h1>
           <p>
             Premium turf, friendly atmosphere, and flexible booking for casual games,
             training sessions, and competitive matches.
           </p>
-          <div class="hero-actions">
-            <a href="pricing.html" class="btn btn-primary">View Pricing</a>
-            <a href="contact.html" class="btn btn-secondary">Book Now</a>
+          <div class="hero-actions hero-actions-centered">
+            <a href="contact.html" class="btn btn-primary">Book Now</a>
+            <a href="pricing.html" class="btn btn-secondary">View Pricing</a>
           </div>
-        </div>
-
-        <div class="hero-card card">
-          <img src="images/hero/hero.jpg" alt="Football turf at Footlab" />
         </div>
       </div>
     </section>
@@ -95,13 +131,13 @@
 
         <div class="gallery-preview">
           <div class="card gallery-item">
-            <img src="images/gallery/turf1.jpg" alt="Footlab turf view 1" />
+            <img src="images/gallery/turf 1.jpeg" alt="Footlab turf view 1" />
           </div>
           <div class="card gallery-item">
-            <img src="images/gallery/turf2.jpg" alt="Footlab turf view 2" />
+            <img src="images/gallery/turf 2.jpeg" alt="Footlab turf view 2" />
           </div>
           <div class="card gallery-item">
-            <img src="images/gallery/turf3.jpg" alt="Footlab turf view 3" />
+            <img src="images/gallery/turf 3.jpeg" alt="Footlab turf view 3" />
           </div>
         </div>
 
